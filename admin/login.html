@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — QuickCafe</title>
+<script>(function(){document.documentElement.setAttribute('data-theme', localStorage.getItem('qc_theme') || 'dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body data-page="admin-login">
+
+  <div class="admin-login-shell">
+    <div class="admin-login-card">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-mug-saucer"></i></div>
+        <div class="brand-text"><h1>QuickCafe</h1><span>Admin Panel</span></div>
+      </div>
+
+      <div class="admin-login-title">
+        <h2>Staff Sign In</h2>
+        <p>Manage menu, orders, tables and reports.</p>
+      </div>
+
+      <div id="loginError" class="login-error"></div>
+
+      <form id="adminLoginForm">
+        <div class="field">
+          <label>Username or Email</label>
+          <input id="loginUsername" type="text" placeholder="admin" required autocomplete="username">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input id="loginPassword" type="password" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <button class="btn btn-primary btn-block" id="loginSubmitBtn" type="submit">
+          <i class="fa-solid fa-right-to-bracket"></i> Login
+        </button>
+      </form>
+
+      <div class="demo-creds">
+        Demo login — Username: <b>admin</b> &nbsp;·&nbsp; Password: <b>admin123</b>
+      </div>
+
+      <a href="../index.html" class="back-to-site"><i class="fa-solid fa-arrow-left"></i> Back to customer site</a>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

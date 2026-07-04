@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to QuickCafe</title>
+
+  <script>
+    window.onerror = function(message, source, lineno, colno, error) {
+      fetch('/api/log-error', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, source, lineno, colno, error: error ? error.stack : null })
+      });
+    };
+    window.addEventListener('unhandledrejection', function(event) {
+      fetch('/api/log-error', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: 'Unhandled Rejection: ' + (event.reason ? (event.reason.stack || event.reason) : event.reason) })
+      });
+    });
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- 3D engine for the ambient scene behind the login card -->
+  <script src="https://unpkg.com/three@0.160.1/build/three.min.js"></script>
+
+  <link rel="stylesheet" href="css/landing.css" />
+</head>
+<body>
+  <!-- Real-time 3D bokeh + coffee bean field, rendered behind every element -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <main class="login-page">
+    <!-- Animated premium background elements: only beside login card -->
+    <section class="visual-side" aria-hidden="true">
+      <div class="soft-orb orb-one"></div>
+      <div class="soft-orb orb-two"></div>
+
+      <div class="brand-corner">
+        <span class="brand-icon"><i data-lucide="coffee"></i></span>
+        <span>QuickCafe</span>
+      </div>
+
+      <div class="lamp lamp-one"></div>
+      <div class="lamp lamp-two"></div>
+
+      <div class="leaf leaf-one"></div>
+      <div class="leaf leaf-two"></div>
+
+      <!-- Separate coffee beans: one by one, not a group -->
+      <span class="bean bean-one"></span>
+      <span class="bean bean-two"></span>
+      <span class="bean bean-three"></span>
+      <span class="bean bean-four"></span>
+      <span class="bean bean-five"></span>
+
+      <div class="intro-copy">
+        <p class="script-text">Welcome to</p>
+        <h1>Quick<span>Cafe</span></h1>
+        <p class="tagline">Smart Ordering. Better Experience.</p>
+
+        <div class="feature-row">
+          <div class="feature-card">
+            <i data-lucide="qr-code"></i>
+            <span>QR Based<br />Ordering</span>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="clock-3"></i>
+            <span>Real-time<br />Updates</span>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="shield-check"></i>
+            <span>Simple &<br />Secure</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="coffee-stage">
+        <div class="steam steam-one"></div>
+        <div class="steam steam-two"></div>
+        <div class="steam steam-three"></div>
+
+        <img src="images/hero/shop_model.png" alt="QuickCafe Miniature Shop" class="shop-model-img" />
+      </div>
+
+    </section>
+
+    <!-- Fixed login panel: no movement animation on the form/card -->
+    <section class="login-side">
+      <div class="card-shell">
+        <div class="card-aura" aria-hidden="true"></div>
+        <form class="login-card" id="loginForm">
+          <div class="login-logo">
+            <i data-lucide="coffee"></i>
+          </div>
+
+          <h2 class="reveal" style="--d:.22s">Admin Login</h2>
+          <p class="login-subtitle reveal" style="--d:.28s">Sign in to manage your café seamlessly</p>
+
+          <div class="message" id="messageBox"></div>
+
+          <label class="field reveal" style="--d:.34s" id="field1Group">
+            <span>Username</span>
+            <div class="input-wrap">
+              <i data-lucide="user-round" id="field1Icon"></i>
+              <input type="text" id="username" placeholder="Enter your username" autocomplete="username" />
+            </div>
+          </label>
+
+          <label class="field reveal" style="--d:.40s" id="field2Group">
+            <span id="field2Label">Password</span>
+            <div class="input-wrap" id="field2InputWrap">
+              <i data-lucide="lock-keyhole" id="field2Icon"></i>
+              <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password" />
+              <button type="button" class="icon-btn" id="togglePassword" aria-label="Show password">
+                <i data-lucide="eye-off"></i>
+              </button>
+              
+              <!-- Customer Table select (hidden by default) -->
+              <select id="tableSelect" style="display: none;">
+                <option value="Table 01">Table 01</option>
+                <option value="Table 02">Table 02</option>
+                <option value="Table 03">Table 03</option>
+                <option value="Table 07" selected>Table 07</option>
+                <option value="Table 12">Table 12</option>
+              </select>
+            </div>
+          </label>
+
+          <div class="form-row reveal" style="--d:.46s">
+            <label class="remember">
+              <input type="checkbox" checked />
+              <span>Remember me</span>
+            </label>
+            <a href="#">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="login-btn reveal" style="--d:.52s">
+            <i data-lucide="log-in"></i>
+            Login
+          </button>
+
+          <div class="divider reveal" style="--d:.58s"><span>or</span></div>
+
+          <button type="button" class="customer-link reveal" style="--d:.64s">
+            <i data-lucide="coffee"></i>
+            Back to Customer Site
+          </button>
+
+          <p class="security-note reveal" style="--d:.70s">
+            <i data-lucide="shield-check"></i>
+            Your data is protected with secure café admin access
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <div class="bottom-note">
+      Brewed with <span>♥</span> for a better experience
+    </div>
+  </main>
+
+  <script src="js/landing.js"></script>
+</body>
+</html>

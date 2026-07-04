@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Status — QuickCafe</title>
+<script>(function(){document.documentElement.setAttribute('data-theme', localStorage.getItem('qc_theme') || 'dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="status">
+  <div class="app-shell">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-mug-saucer"></i></div>
+        <div class="brand-text"><h1>QuickCafe</h1><span>Good Food, Good Mood</span></div>
+      </div>
+      <div class="sidebar-divider"></div>
+      <ul class="nav-list">
+        <li><a href="customer.html" class="nav-item"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="menu.html" class="nav-item"><i class="fa-solid fa-book-open"></i> Menu</a></li>
+        <li><a href="status.html" class="nav-item active"><i class="fa-solid fa-receipt"></i> My Order</a></li>
+        <li><a href="cart.html" class="nav-item"><i class="fa-solid fa-cart-shopping"></i> Cart <span class="nav-badge" data-cart-badge>0</span></a></li>
+        <li><a href="table.html" class="nav-item"><i class="fa-solid fa-chair"></i> My Table</a></li>
+        <li><a href="offers.html" class="nav-item"><i class="fa-regular fa-star"></i> Offers</a></li>
+        <li><a href="profile.html" class="nav-item"><i class="fa-regular fa-user"></i> Profile</a></li>
+        <li><a href="about.html" class="nav-item"><i class="fa-regular fa-circle-info"></i> About Us</a></li>
+        <li><a href="contact.html" class="nav-item"><i class="fa-solid fa-phone"></i> Contact</a></li>
+      </ul>
+      <button class="scan-again-btn"><i class="fa-solid fa-qrcode"></i> Scan QR</button>
+    </aside>
+    <main class="main">
+
+      <div class="mobile-topbar">
+        <button data-nav-toggle class="icon-pill"><i class="fa-solid fa-bars"></i></button>
+        <div class="brand"><div class="brand-mark" style="width:34px;height:34px;font-size:14px;"><i class="fa-solid fa-mug-saucer"></i></div><strong>QuickCafe</strong></div>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme"><i class="fa-solid fa-sun"></i></button>
+      </div>
+      <div class="topbar">
+        <h3 class="page-title"><i class="fa-solid fa-mug-hot"></i> Order Status</h3>
+        <div class="topbar-right">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch theme"><i class="fa-solid fa-sun"></i></button>
+          <a href="cart.html" class="icon-pill"><i class="fa-solid fa-cart-shopping"></i><span class="dot" data-cart-dot style="display:none;"></span></a>
+        </div>
+      </div>
+
+      <div class="status-card" id="statusCard">
+        <div class="status-card-head">
+          <div>
+            <h2>We’re on it <span style="font-family:var(--font-script);color:var(--moss-bright);">☕</span></h2>
+            <p class="order-id-tag" id="orderIdTag">Order #—</p>
+            <p class="order-id-tag" id="orderTableTag" style="margin-top:2px;"></p>
+          </div>
+          <span class="status-badge"><i class="fa-solid fa-circle-notch fa-spin" style="margin-right:6px;"></i><span id="statusBadgeText">Pending</span></span>
+        </div>
+        <div class="stepper" id="stepperRow"></div>
+        <div class="status-note">
+          <i class="fa-solid fa-mug-saucer"></i>
+          <span>Your order is prepared fresh. This page checks with the kitchen automatically, so no refresh is needed.</span>
+        </div>
+        <div class="status-actions">
+          <a href="menu.html" class="btn btn-ghost"><i class="fa-solid fa-plus"></i> Order More</a>
+          <a href="#" id="viewBillLink" class="btn btn-primary"><i class="fa-solid fa-receipt"></i> View Bill</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

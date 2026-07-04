@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickCafe — QR Café Ordering</title>
+<script>(function(){document.documentElement.setAttribute('data-theme', localStorage.getItem('qc_theme') || 'dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+  <div class="app-shell dashboard-shell">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-mug-saucer"></i></div>
+        <div class="brand-text"><h1>QuickCafe</h1><span>Good Food, Good Mood</span></div>
+      </div>
+      <div class="sidebar-divider"></div>
+      <ul class="nav-list">
+        <li><a href="customer.html" class="nav-item active"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="menu.html" class="nav-item"><i class="fa-solid fa-book-open"></i> Menu</a></li>
+        <li><a href="status.html" class="nav-item"><i class="fa-solid fa-receipt"></i> My Order</a></li>
+        <li><a href="cart.html" class="nav-item"><i class="fa-solid fa-cart-shopping"></i> Cart <span class="nav-badge" data-cart-badge>0</span></a></li>
+        <li><a href="table.html" class="nav-item"><i class="fa-solid fa-chair"></i> My Table</a></li>
+        <li><a href="offers.html" class="nav-item"><i class="fa-regular fa-star"></i> Offers</a></li>
+        <li><a href="profile.html" class="nav-item"><i class="fa-regular fa-user"></i> Profile</a></li>
+        <li><a href="about.html" class="nav-item"><i class="fa-regular fa-circle-info"></i> About Us</a></li>
+        <li><a href="contact.html" class="nav-item"><i class="fa-solid fa-phone"></i> Contact</a></li>
+      </ul>
+      <button class="scan-again-btn"><i class="fa-solid fa-qrcode"></i> Scan QR</button>
+    </aside>
+    <main class="main dashboard-main">
+
+      <div class="mobile-topbar">
+        <button data-nav-toggle class="icon-pill"><i class="fa-solid fa-bars"></i></button>
+        <div class="brand"><div class="brand-mark" style="width:34px;height:34px;font-size:14px;"><i class="fa-solid fa-mug-saucer"></i></div><strong>QuickCafe</strong></div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch theme"><i class="fa-solid fa-sun"></i></button>
+          <a href="cart.html" class="icon-pill"><i class="fa-solid fa-cart-shopping"></i><span class="dot" data-cart-dot style="display:none;"></span></a>
+        </div>
+      </div>
+      <div class="topbar">
+        <div class="topbar-spacer"></div>
+        <div class="topbar-right">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch theme"><i class="fa-solid fa-sun"></i></button>
+        </div>
+      </div>
+
+      <section class="hero">
+        <p class="hero-eyebrow">Welcome to</p>
+        <h2>QuickCafe</h2>
+        <div class="hero-flow">
+          <i class="fa-solid fa-qrcode"></i><span>Scan</span>
+          <span>•</span><i class="fa-solid fa-mug-hot"></i><span>Order</span>
+          <span>•</span><i class="fa-solid fa-link"></i><span>Relax</span>
+          <span>•</span><i class="fa-regular fa-face-smile"></i><span>Enjoy</span>
+        </div>
+        <p class="hero-tagline">Delicious coffee, happy you! Pick your favourite items from the table QR menu and enjoy a smooth café ordering experience.</p>
+        <div class="hero-cta">
+          <a href="menu.html" class="btn btn-primary"><i class="fa-solid fa-mug-hot"></i> Explore Menu</a>
+          <a href="#offers" class="btn btn-ghost"><i class="fa-regular fa-star"></i> View Offers</a>
+        </div>
+      </section>
+      <br></br>
+
+      <section class="home-popular">
+        <div class="section-head">
+          <h3><i class="fa-solid fa-mug-saucer"></i> Popular Picks</h3>
+          <a href="menu.html" class="cart-pill">View All</a>
+        </div>
+        <div class="popular-carousel-stage" id="popularCarouselStage">
+          <button class="popular-arrow popular-arrow-prev" id="popularPrev" aria-label="Previous">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div class="popular-track-wrap">
+            <div class="popular-grid" id="previewMenuGrid">
+              <div class="skeleton" style="height:72px;min-width:220px;border-radius:99px;"></div>
+              <div class="skeleton" style="height:72px;min-width:220px;border-radius:99px;"></div>
+              <div class="skeleton" style="height:72px;min-width:220px;border-radius:99px;"></div>
+              <div class="skeleton" style="height:72px;min-width:220px;border-radius:99px;"></div>
+            </div>
+          </div>
+          <button class="popular-arrow popular-arrow-next" id="popularNext" aria-label="Next">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <section class="offer-banner" id="offers" style="margin: 0 28px 36px;">
+        <div>
+          <h4>Today’s Special Combo</h4>
+          <p>Get a cappuccino with a fresh muffin and save more on your café break.</p>
+        </div>
+        <a href="menu.html" class="btn btn-clay">Order Now <i class="fa-solid fa-arrow-right"></i></a>
+      </section>
+    </main>
+
+    <aside class="right-rail">
+      <div class="rail-actions">
+        <button class="icon-pill"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="icon-pill" onclick="window.location.reload()"><i class="fa-solid fa-rotate-right"></i></button>
+        <div class="user-greet">
+          <span class="avatar"><i class="fa-solid fa-user"></i></span>
+          <span>Hey, <span data-guest-name>Coffee Lover</span>!</span>
+          <i class="fa-solid fa-chevron-down" style="font-size:10px; opacity:0.6; margin-left:2px;"></i>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-card-content">
+          <small>Your Table</small>
+          <h3 data-table-label>Table 07</h3>
+          <p>2 People</p>
+        </div>
+        <div class="table-illustration" aria-hidden="true">
+          <span class="lamp"></span>
+          <span class="table-top"></span>
+          <span class="table-leg"></span>
+          <span class="chair chair-left"></span>
+          <span class="chair chair-right"></span>
+          <span class="cup cup-one"></span>
+          <span class="cup cup-two"></span>
+        </div>
+      </div>
+
+      <div class="mini-order-panel">
+        <div class="mini-order-head">
+          <h3>Your Order</h3>
+          <span class="order-count" data-mini-cart-count>0 Items</span>
+        </div>
+        <div id="quickOrderList" class="quick-order-list"></div>
+        <div class="summary-rows">
+          <div class="summary-row total"><span>Total Amount</span><span data-mini-cart-total>₹0</span></div>
+        </div>
+        <a href="cart.html" class="btn btn-primary btn-block" style="margin-top:18px;">Place Order <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </aside>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

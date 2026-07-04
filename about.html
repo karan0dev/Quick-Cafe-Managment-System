@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — QuickCafe</title>
+<script>(function(){document.documentElement.setAttribute('data-theme', localStorage.getItem('qc_theme') || 'dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="about">
+  <div class="app-shell">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-mug-saucer"></i></div>
+        <div class="brand-text"><h1>QuickCafe</h1><span>Good Food, Good Mood</span></div>
+      </div>
+      <div class="sidebar-divider"></div>
+      <ul class="nav-list">
+        <li><a href="customer.html" class="nav-item"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="menu.html" class="nav-item"><i class="fa-solid fa-book-open"></i> Menu</a></li>
+        <li><a href="status.html" class="nav-item"><i class="fa-solid fa-receipt"></i> My Order</a></li>
+        <li><a href="cart.html" class="nav-item"><i class="fa-solid fa-cart-shopping"></i> Cart <span class="nav-badge" data-cart-badge>0</span></a></li>
+        <li><a href="table.html" class="nav-item"><i class="fa-solid fa-chair"></i> My Table</a></li>
+        <li><a href="offers.html" class="nav-item"><i class="fa-regular fa-star"></i> Offers</a></li>
+        <li><a href="profile.html" class="nav-item"><i class="fa-regular fa-user"></i> Profile</a></li>
+        <li><a href="about.html" class="nav-item active"><i class="fa-regular fa-circle-info"></i> About Us</a></li>
+        <li><a href="contact.html" class="nav-item"><i class="fa-solid fa-phone"></i> Contact</a></li>
+      </ul>
+      <button class="scan-again-btn"><i class="fa-solid fa-qrcode"></i> Scan QR</button>
+    </aside>
+
+    <main class="main">
+      <div class="mobile-topbar">
+        <button data-nav-toggle class="icon-pill"><i class="fa-solid fa-bars"></i></button>
+        <div class="brand"><div class="brand-mark" style="width:34px;height:34px;font-size:14px;"><i class="fa-solid fa-mug-saucer"></i></div><strong>QuickCafe</strong></div>
+        <a href="cart.html" class="icon-pill"><i class="fa-solid fa-cart-shopping"></i><span class="dot" data-cart-dot style="display:none;"></span></a>
+      </div>
+      <div class="topbar">
+        <div class="page-title"><i class="fa-regular fa-circle-info"></i> About QuickCafe</div>
+        <div class="topbar-right">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch theme"><i class="fa-solid fa-sun"></i></button>
+          <div class="table-chip"><div class="table-icon"><i class="fa-solid fa-chair"></i></div><div><strong data-table-label>Table 07</strong><span>Active table</span></div></div>
+          <a href="cart.html" class="icon-pill"><i class="fa-solid fa-cart-shopping"></i><span class="dot" data-cart-dot style="display:none;"></span></a>
+        </div>
+      </div>
+
+      <section class="page-hero-card">
+        <div>
+          <span class="kicker"><i class="fa-solid fa-seedling"></i> QR-Based Café Ordering</span>
+          <h2>QuickCafe makes café ordering faster and smarter.</h2>
+          <p>Customers scan a table QR, browse menu, add items, place orders, track status and generate a printable bill.</p>
+        </div>
+      </section>
+      <section class="info-grid three">
+        <article class="info-tile"><i class="fa-solid fa-qrcode"></i><h3>QR Ordering</h3><p>Each table opens the menu with a table number.</p></article>
+        <article class="info-tile"><i class="fa-solid fa-database"></i><h3>Node.js & MongoDB</h3><p>Menu, orders and billing are backed by API endpoints.</p></article>
+        <article class="info-tile"><i class="fa-solid fa-file-invoice"></i><h3>Billing</h3><p>GST calculation and printable invoice flow.</p></article>
+      </section>
+      <section class="glass-panel page-panel"><h3><i class="fa-solid fa-code"></i> Tech Stack</h3><p class="muted-copy">HTML, CSS, JavaScript, Node.js, Express, MongoDB Atlas, localStorage cart system, and responsive dashboard UI.</p></section>
+
+    </main>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

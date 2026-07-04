@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offers — QuickCafe</title>
+<script>(function(){document.documentElement.setAttribute('data-theme', localStorage.getItem('qc_theme') || 'dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="offers">
+  <div class="app-shell">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-mug-saucer"></i></div>
+        <div class="brand-text"><h1>QuickCafe</h1><span>Good Food, Good Mood</span></div>
+      </div>
+      <div class="sidebar-divider"></div>
+      <ul class="nav-list">
+        <li><a href="customer.html" class="nav-item"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="menu.html" class="nav-item"><i class="fa-solid fa-book-open"></i> Menu</a></li>
+        <li><a href="status.html" class="nav-item"><i class="fa-solid fa-receipt"></i> My Order</a></li>
+        <li><a href="cart.html" class="nav-item"><i class="fa-solid fa-cart-shopping"></i> Cart <span class="nav-badge" data-cart-badge>0</span></a></li>
+        <li><a href="table.html" class="nav-item"><i class="fa-solid fa-chair"></i> My Table</a></li>
+        <li><a href="offers.html" class="nav-item active"><i class="fa-regular fa-star"></i> Offers</a></li>
+        <li><a href="profile.html" class="nav-item"><i class="fa-regular fa-user"></i> Profile</a></li>
+        <li><a href="about.html" class="nav-item"><i class="fa-regular fa-circle-info"></i> About Us</a></li>
+        <li><a href="contact.html" class="nav-item"><i class="fa-solid fa-phone"></i> Contact</a></li>
+      </ul>
+      <button class="scan-again-btn"><i class="fa-solid fa-qrcode"></i> Scan QR</button>
+    </aside>
+
+    <main class="main">
+      <div class="mobile-topbar">
+        <button data-nav-toggle class="icon-pill"><i class="fa-solid fa-bars"></i></button>
+        <div class="brand"><div class="brand-mark" style="width:34px;height:34px;font-size:14px;"><i class="fa-solid fa-mug-saucer"></i></div><strong>QuickCafe</strong></div>
+        <a href="cart.html" class="icon-pill"><i class="fa-solid fa-cart-shopping"></i><span class="dot" data-cart-dot style="display:none;"></span></a>
+      </div>
+      <div class="topbar">
+        <div class="page-title"><i class="fa-regular fa-star"></i> Offers</div>
+        <div class="topbar-right">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch theme"><i class="fa-solid fa-sun"></i></button>
+          <div class="table-chip"><div class="table-icon"><i class="fa-solid fa-chair"></i></div><div><strong data-table-label>Table 07</strong><span>Active table</span></div></div>
+          <a href="cart.html" class="icon-pill"><i class="fa-solid fa-cart-shopping"></i><span class="dot" data-cart-dot style="display:none;"></span></a>
+        </div>
+      </div>
+
+      <section class="page-hero-card offer-page-hero">
+        <div>
+          <span class="kicker"><i class="fa-solid fa-percent"></i> Today’s Deals</span>
+          <h2>Fresh offers for your café break</h2>
+          <p>Use these demo offers to make the project look complete and useful for real café customers.</p>
+        </div>
+        <a href="menu.html" class="btn btn-primary">Explore Menu <i class="fa-solid fa-arrow-right"></i></a>
+      </section>
+      <section class="offer-grid">
+        <article class="offer-card"><span>20% OFF</span><h3>Flat 20% OFF</h3><p>Automatically applied on orders above ₹599.</p><a href="menu.html">Use Offer →</a></article>
+        <article class="offer-card"><span>COMBO</span><h3>Coffee + Muffin</h3><p>Save more with a cappuccino and blueberry muffin combo.</p><a href="menu.html">Order Now →</a></article>
+        <article class="offer-card"><span>STUDENT</span><h3>Study Table Deal</h3><p>Perfect for students: cold coffee with sandwich combo.</p><a href="menu.html">View Combo →</a></article>
+      </section>
+
+    </main>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

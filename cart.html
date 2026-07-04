@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart — QuickCafe</title>
+<script>(function(){document.documentElement.setAttribute('data-theme', localStorage.getItem('qc_theme') || 'dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="cart">
+  <div class="app-shell">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-mug-saucer"></i></div>
+        <div class="brand-text"><h1>QuickCafe</h1><span>Good Food, Good Mood</span></div>
+      </div>
+      <div class="sidebar-divider"></div>
+      <ul class="nav-list">
+        <li><a href="customer.html" class="nav-item"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="menu.html" class="nav-item"><i class="fa-solid fa-book-open"></i> Menu</a></li>
+        <li><a href="status.html" class="nav-item"><i class="fa-solid fa-receipt"></i> My Order</a></li>
+        <li><a href="cart.html" class="nav-item active"><i class="fa-solid fa-cart-shopping"></i> Cart <span class="nav-badge" data-cart-badge>0</span></a></li>
+        <li><a href="table.html" class="nav-item"><i class="fa-solid fa-chair"></i> My Table</a></li>
+        <li><a href="offers.html" class="nav-item"><i class="fa-regular fa-star"></i> Offers</a></li>
+        <li><a href="profile.html" class="nav-item"><i class="fa-regular fa-user"></i> Profile</a></li>
+        <li><a href="about.html" class="nav-item"><i class="fa-regular fa-circle-info"></i> About Us</a></li>
+        <li><a href="contact.html" class="nav-item"><i class="fa-solid fa-phone"></i> Contact</a></li>
+      </ul>
+      <button class="scan-again-btn"><i class="fa-solid fa-qrcode"></i> Scan QR</button>
+    </aside>
+    <main class="main">
+
+      <div class="mobile-topbar">
+        <button data-nav-toggle class="icon-pill"><i class="fa-solid fa-bars"></i></button>
+        <div class="brand"><div class="brand-mark" style="width:34px;height:34px;font-size:14px;"><i class="fa-solid fa-mug-saucer"></i></div><strong>QuickCafe</strong></div>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme"><i class="fa-solid fa-sun"></i></button>
+      </div>
+      <div class="topbar">
+        <h3 class="page-title"><i class="fa-solid fa-cart-shopping"></i> Your Cart</h3>
+        <div class="topbar-right">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch theme"><i class="fa-solid fa-sun"></i></button>
+          <div class="table-chip">
+            <div class="table-icon"><i class="fa-solid fa-chair"></i></div>
+            <div><strong id="tableNumberDisplay">Table 07</strong><span>Order will be sent here</span></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="layout-with-cart">
+        <div class="info-panel">
+          <h4><i class="fa-solid fa-circle-info"></i> Before you confirm</h4>
+          <ul>
+            <li><i class="fa-solid fa-check"></i>Double-check quantities — you can still edit anything below.</li>
+            <li><i class="fa-solid fa-check"></i>A 5% GST is added automatically at checkout.</li>
+            <li><i class="fa-solid fa-check"></i>After placing the order, track live progress on the <a href="status.html" style="color:var(--moss-bright);font-weight:900;">My Order</a> page.</li>
+          </ul>
+          <div class="field" style="margin-top:24px;">
+            <label>Add a note for the kitchen (optional)</label>
+            <input type="text" placeholder="e.g. less sugar, extra napkins...">
+          </div>
+          <div class="offer-banner" style="margin-top:22px;">
+            <div><h4>Secure Checkout</h4><p>Your item prices are verified from the server before order placement.</p></div>
+          </div>
+        </div>
+
+        <div class="order-panel">
+          <div class="order-panel-head">
+            <h3>Your Order</h3>
+            <span class="order-count" data-cart-badge-count>0 Items</span>
+          </div>
+          <div id="cartLines"></div>
+          <div class="promo-code-section" style="margin: 14px 0 10px; border-top: 1px dashed var(--border); border-bottom: 1px dashed var(--border); padding: 12px 0;">
+            <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:6px;font-weight:900;">Promo Code</label>
+            <div style="display:flex;gap:8px;">
+              <input type="text" id="promoInput" placeholder="e.g. WELCOME10, FLAT20" style="flex:1;text-transform:uppercase;padding:6px 12px;border:1px solid var(--border);background:var(--bg-glass);color:var(--text);border-radius:6px;font-size:13px;font-weight:700;">
+              <button class="btn btn-ghost" id="applyPromoBtn" style="padding:6px 14px;font-size:12px;font-weight:900;border:1px solid var(--border);">Apply</button>
+            </div>
+            <div id="promoFeedback" style="font-size:11px;margin-top:6px;font-weight:800;display:none;"></div>
+          </div>
+          <div class="summary-rows">
+            <div class="summary-row"><span>Subtotal</span><span id="sumSubtotal">₹0.00</span></div>
+            <div class="summary-row" id="discountRow" style="display:none;color:var(--moss-bright);"><span>Discount (<span id="discountName"></span>)</span><span id="sumDiscount">₹0.00</span></div>
+            <div class="summary-row"><span>GST (5%)</span><span id="sumTax">₹0.00</span></div>
+            <div class="summary-row total"><span>Total</span><span id="sumTotal">₹0.00</span></div>
+          </div>
+          <label style="font-size:12px;color:var(--muted);display:block;margin:18px 0 8px;font-weight:900;">Payment Method</label>
+          <div class="payment-modes">
+            <div class="payment-mode active" data-mode="UPI"><i class="fa-solid fa-mobile-screen-button"></i>UPI</div>
+            <div class="payment-mode" data-mode="Card"><i class="fa-solid fa-credit-card"></i>Card</div>
+            <div class="payment-mode" data-mode="Cash"><i class="fa-solid fa-money-bill-wave"></i>Cash</div>
+            <div class="payment-mode" data-mode="Wallet"><i class="fa-solid fa-wallet"></i>Wallet</div>
+          </div>
+          <button class="btn btn-primary btn-block" id="placeOrderBtn"><i class="fa-solid fa-bolt"></i> Place Order</button>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

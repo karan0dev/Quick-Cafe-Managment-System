@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Menu — QuickCafe Admin</title>
+<script>(function(){document.documentElement.setAttribute('data-theme', localStorage.getItem('qc_theme') || 'dark');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body data-page="admin-menu">
+  <div class="app-shell">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-mug-saucer"></i></div>
+        <div class="brand-text"><h1>QuickCafe</h1><span>Admin Panel</span></div>
+      </div>
+      <div class="sidebar-divider"></div>
+      <ul class="nav-list">
+        <li><a href="dashboard.html" class="nav-item"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+        <li><a href="orders.html" class="nav-item"><i class="fa-solid fa-receipt"></i> Orders</a></li>
+        <li><a href="manage-menu.html" class="nav-item active"><i class="fa-solid fa-book-open"></i> Menu</a></li>
+        <li><a href="tables.html" class="nav-item"><i class="fa-solid fa-chair"></i> Tables</a></li>
+        <li><a href="reports.html" class="nav-item"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+      </ul>
+      <div class="sidebar-divider"></div>
+      <ul class="nav-list" style="flex:0;">
+        <li><a href="../customer.html" class="nav-item"><i class="fa-solid fa-arrow-left"></i> View Customer Site</a></li>
+        <li><button class="nav-item admin-exit" data-admin-logout style="width:100%;text-align:left;border:0;"><i class="fa-solid fa-right-from-bracket"></i> Logout</button></li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <div class="mobile-topbar">
+        <button data-nav-toggle class="icon-pill"><i class="fa-solid fa-bars"></i></button>
+        <div class="brand"><div class="brand-mark" style="width:34px;height:34px;font-size:14px;"><i class="fa-solid fa-mug-saucer"></i></div><strong>QuickCafe Admin</strong></div>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme"><i class="fa-solid fa-sun"></i></button>
+      </div>
+      <div class="topbar">
+        <div class="page-title"><i class="fa-solid fa-book-open"></i> Manage Menu</div>
+        <div class="topbar-right">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch theme"><i class="fa-solid fa-sun"></i></button>
+          <div class="admin-topbar-user">
+            <span class="avatar"><i class="fa-solid fa-user-shield"></i></span>
+            <span>Hi, <span data-admin-username>admin</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-panel item-form-panel">
+        <h4 id="formTitle"><i class="fa-solid fa-plus"></i> Add New Item</h4>
+        <form id="itemForm" style="margin-top:18px;">
+          <input type="hidden" id="itemId">
+          <div class="item-form-grid">
+            <div class="field">
+              <label>Category</label>
+              <select id="itemCategory" required></select>
+            </div>
+            <div class="field span-2">
+              <label>Item Name</label>
+              <input id="itemName" required placeholder="e.g. Cappuccino">
+            </div>
+            <div class="field span-3">
+              <label>Description</label>
+              <textarea id="itemDescription" placeholder="e.g. Classic espresso with steamed milk foam"></textarea>
+            </div>
+            <div class="field">
+              <label>Price (₹)</label>
+              <input id="itemPrice" type="number" min="1" step="0.01" required placeholder="149">
+            </div>
+            <div class="field">
+              <label>Rating</label>
+              <input id="itemRating" type="number" min="1" max="5" step="0.1" placeholder="4.5">
+            </div>
+            <div class="field">
+              <label>Availability</label>
+              <select id="itemAvailability">
+                <option value="Available">Available</option>
+                <option value="Unavailable">Unavailable</option>
+              </select>
+            </div>
+            <div class="field span-3">
+              <label>Image URL</label>
+              <input id="itemImage" placeholder="https://images.unsplash.com/... or images/menu/cappuccino.svg">
+            </div>
+          </div>
+          <div class="item-form-actions">
+            <button class="btn btn-primary" id="itemSubmitBtn" type="submit"><i class="fa-solid fa-plus"></i> Add Item</button>
+            <button class="btn btn-ghost" id="cancelEditBtn" type="button" style="display:none;"><i class="fa-solid fa-xmark"></i> Cancel</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="section-head">
+        <h3><i class="fa-solid fa-list"></i> All Menu Items</h3>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Image</th><th>Item</th><th>Category</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="menuItemsRows"><tr><td colspan="6" style="text-align:center;color:var(--muted);padding:24px;"><i class="fa-solid fa-spinner fa-spin"></i> Loading...</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>
