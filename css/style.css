@@ -2420,15 +2420,9 @@ html[data-theme="light"] .home-popular .popular-card:hover {
 
 /* Go to Cart — sticky bar always visible at bottom of .main */
 .carousel-footer {
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 14px 16px;
-  margin: 0;
-  background: transparent;
+  position: fixed;
+  bottom: 30px;
+  right: 36px;
   z-index: 300;
   pointer-events: none; /* let clicks pass through except on the button */
 }
