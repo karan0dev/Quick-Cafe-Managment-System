@@ -1252,6 +1252,7 @@ function initHeroAnimations() {
       bg.className = 'hero-bg';
       hero.prepend(bg);
     }
+
     for (let i = 0; i < 6; i++) {
       const particle = document.createElement('div');
       particle.className = 'hero-particle';
