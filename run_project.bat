@@ -1,7 +1,7 @@
 @echo off
 title QuickCafe Auto Run
 echo ===================================================
-echo   ☕ QuickCafe Setup & Run Script
+echo   ☕ QuickCafe Setup ^& Run Script
 echo ===================================================
 echo.
 
@@ -18,17 +18,17 @@ echo [OK] Node.js is installed.
 
 :: 2. Check and copy .env
 if not exist .env (
-    echo [INFO] .env file not found. Copying .env.example to .env...
+    echo [INFO] .env file not found. Copying env file...
     copy .env.example .env >nul
-    echo [WARNING] A new .env file has been created.
-    echo Please make sure your MONGODB_URI in the .env file is correct.
+    echo [WARNING] A new env file has been created.
+    echo Please make sure your MONGODB_URI in the env file is correct.
 ) else (
     echo [OK] .env file found.
 )
 
 :: 3. Check and install dependencies
 if not exist node_modules (
-    echo [INFO] Installing dependencies (npm install)...
+    echo [INFO] Installing dependencies...
     call npm install
 ) else (
     echo [OK] Dependencies already installed.
@@ -38,7 +38,7 @@ if not exist node_modules (
 echo.
 choice /M "Do you want to seed the database with demo data (clears current database first)?" /T 5 /D Y
 if %errorlevel% equ 1 (
-    echo [INFO] Seeding database (npm run seed)...
+    echo [INFO] Seeding database...
     call npm run seed
 )
 echo.

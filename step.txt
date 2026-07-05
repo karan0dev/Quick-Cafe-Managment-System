@@ -1,0 +1,28 @@
+Edited run_project.bat
+Ran command: `git add .`
+Ran command: `git commit -m "Add run_project.bat for one-click project run"`
+Ran command: `git push origin main`
+
+I have created a one-click batch script named `run_project.bat` in the root of the project and pushed it to GitHub!
+
+Here are the step-by-step instructions to run the project on your friend's laptop:
+
+### Prerequisites:
+1. **Node.js**: Download and install it from the official site [nodejs.org](https://nodejs.org/).
+2. **VS Code**: Install it from [code.visualstudio.com](https://code.visualstudio.com/).
+
+---
+
+### Step-by-Step Setup:
+1. **Clone or Copy Folder**: Clone the repository or copy the project folder onto your friend's laptop.
+2. **Open in VS Code**: Open VS Code, select **File > Open Folder...**, and select the `QuickCafe` folder.
+3. **One-Click Run**:
+   - Open your file explorer, locate the `run_project.bat` file in the project folder, and **double-click it**.
+   - **Alternative**: In the VS Code terminal, type `.\run_project.bat` and press Enter.
+
+### What the Script Automates:
+1. **Checks Node.js installation**.
+2. **Handles Environment Variables**: Checks if `.env` exists; if not, copies `.env.example` to `.env` automatically.
+3. **Installs Dependencies**: Installs the required packages using `npm install` (only if they aren't already installed).
+4. **Seeds Database**: Prompts if you want to seed the database with demo data (press `Y` or wait 5 seconds to seed automatically).
+5. **Launches App**: Starts the backend server and automatically opens the customer dashboard at `http://localhost:3000/` in your browser.
