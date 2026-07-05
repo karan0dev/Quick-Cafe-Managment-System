@@ -239,13 +239,12 @@ function getTableNumber() {
 
 /* ---------- theme switcher ---------- */
 function applyTheme(theme) {
-  const safeTheme = theme === 'light' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', safeTheme);
-  localStorage.setItem('qc_theme', safeTheme);
+  document.documentElement.setAttribute('data-theme', 'light');
+  localStorage.setItem('qc_theme', 'light');
 }
 
 function initTheme() {
-  applyTheme(localStorage.getItem('qc_theme') || document.documentElement.getAttribute('data-theme') || 'dark');
+  applyTheme('light');
 }
 
 function syncTableLabels() {
