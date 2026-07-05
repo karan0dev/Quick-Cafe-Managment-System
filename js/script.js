@@ -736,7 +736,7 @@ function renderPopularGrid(container, items) {
 
   // Arrow carousel controls (only wire once — check flag on stage)
   const stage = qs('#popularCarouselStage');
-  const track = qs('.popular-track-wrap', stage);
+  const track = qs('.popular-grid', stage);
   if (!stage || !track || stage._arrowsWired) return;
   stage._arrowsWired = true;
 
