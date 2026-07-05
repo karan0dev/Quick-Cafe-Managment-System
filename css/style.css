@@ -1640,6 +1640,31 @@ html[data-theme="light"] .home-popular .popular-card:hover {
   background: linear-gradient(135deg, #a75d27, #7f5539) !important;
 }
 
+/* ── Blinking spotlight transition overrides ── */
+.home-popular .popular-card-title,
+.home-popular .popular-card-price,
+.home-popular .popular-add-btn {
+  transition: color 0.24s var(--ease), background 0.24s var(--ease), border-color 0.24s var(--ease);
+}
+.home-popular .popular-card.blink-active {
+  transform: translateY(-4px) scale(1.025);
+  background: linear-gradient(135deg, #a75d27, #7f5539) !important;
+  border-color: rgba(255, 255, 255, 0.38) !important;
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.25),
+    0 14px 32px rgba(127, 85, 57, 0.32);
+}
+.home-popular .popular-card.blink-active .popular-card-title { color: #fff !important; }
+.home-popular .popular-card.blink-active .popular-card-price { color: #fbf5f0 !important; }
+.home-popular .popular-card.blink-active .popular-add-btn {
+  background: #fff !important;
+  color: #7f5539 !important;
+  border-color: #fff !important;
+}
+html[data-theme="light"] .home-popular .popular-card.blink-active {
+  background: linear-gradient(135deg, #a75d27, #7f5539) !important;
+}
+
 /* ── Card media: image zoom on hover ── */
 .home-popular .popular-card-media {
   width: 52px;

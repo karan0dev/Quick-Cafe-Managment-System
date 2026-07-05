@@ -680,6 +680,35 @@ function renderMenuGrid(container, items, _preserveIndex) {
 }
 
 
+let popularBlinkInterval = null;
+function initPopularBlinker() {
+  if (popularBlinkInterval) clearInterval(popularBlinkInterval);
+  let currentIndex = 0;
+  popularBlinkInterval = setInterval(() => {
+    const cards = document.querySelectorAll('.home-popular .popular-card');
+    if (!cards.length) return;
+    cards.forEach(card => card.classList.remove('blink-active'));
+    const container = document.querySelector('.home-popular');
+    if (container && container.matches(':hover')) return;
+    const activeCard = cards[currentIndex];
+    if (activeCard) {
+      activeCard.classList.add('blink-active');
+      const grid = document.querySelector('.home-popular .popular-grid');
+      if (grid) {
+        const gridRect = grid.getBoundingClientRect();
+        const cardRect = activeCard.getBoundingClientRect();
+        if (cardRect.right > gridRect.right - 20) {
+          grid.scrollBy({ left: cardRect.right - gridRect.right + 20, behavior: 'smooth' });
+        } else if (cardRect.left < gridRect.left + 20) {
+          grid.scrollBy({ left: cardRect.left - gridRect.left - 20, behavior: 'smooth' });
+        }
+      }
+    }
+    currentIndex = (currentIndex + 1) % cards.length;
+  }, 2200);
+}
+
+
 function renderPopularGrid(container, items) {
   if (!container) return;
   if (!items.length) {
@@ -733,6 +762,8 @@ function renderPopularGrid(container, items) {
       });
     });
   });
+
+  initPopularBlinker();
 
   // Arrow carousel controls (only wire once — check flag on stage)
   const stage = qs('#popularCarouselStage');
