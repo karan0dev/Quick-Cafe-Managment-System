@@ -1369,6 +1369,7 @@ html[data-theme="light"] .table-illustration .chair {
   backdrop-filter: blur(18px);
 }
 .page-hero-card {
+  position: relative;
   min-height: 230px;
   padding: clamp(24px, 4vw, 46px);
   display: flex;
@@ -1376,9 +1377,53 @@ html[data-theme="light"] .table-illustration .chair {
   justify-content: space-between;
   gap: 24px;
   background:
-    linear-gradient(135deg, rgba(255, 179, 44, .16), rgba(255, 122, 24, .04)),
+    radial-gradient(circle at 80% 20%, rgba(220, 164, 108, 0.15), transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(127, 85, 57, 0.08), transparent 60%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%),
     var(--bg-panel);
+  border: 2px solid var(--line-bright) !important;
+  box-shadow: 
+    0 20px 45px rgba(116, 81, 49, 0.06),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.7),
+    0 0 35px rgba(255, 235, 215, 0.35);
   overflow: hidden;
+}
+.page-hero-card > * {
+  position: relative;
+  z-index: 2;
+}
+.page-hero-card::before {
+  content: '';
+  position: absolute;
+  top: -40%; left: -10%;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 164, 108, 0.28) 0%, transparent 70%);
+  filter: blur(25px);
+  pointer-events: none;
+  z-index: 1;
+  animation: floatOrbOne 14s ease-in-out infinite alternate;
+}
+.page-hero-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; right: -5%;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(127, 85, 57, 0.16) 0%, transparent 70%);
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 1;
+  animation: floatOrbTwo 16s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrbOne {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(25px, 15px) scale(1.1); }
+}
+@keyframes floatOrbTwo {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-25px, -15px) scale(1.08); }
 }
 .page-hero-card h2 {
   max-width: 780px;
