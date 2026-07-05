@@ -1416,17 +1416,23 @@ html[data-theme="light"] .table-illustration .chair {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  background:
-    radial-gradient(circle at 80% 20%, rgba(220, 164, 108, 0.15), transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(127, 85, 57, 0.08), transparent 60%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%),
-    var(--bg-panel);
+  background-image:
+    linear-gradient(90deg, rgba(31, 17, 7, 0.96) 0%, rgba(31, 17, 7, 0.88) 45%, rgba(31, 17, 7, 0.35) 100%),
+    url("../images/hero/hero-about.png");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
   border: 2px solid var(--line-bright) !important;
   box-shadow: 
     0 20px 45px rgba(116, 81, 49, 0.06),
     inset 2px 2px 5px rgba(255, 255, 255, 0.7),
     0 0 35px rgba(255, 235, 215, 0.35);
   overflow: hidden;
+}
+html[data-theme="light"] .page-hero-card {
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.15) 100%),
+    url("../images/hero/hero-about.png") !important;
 }
 .page-hero-card > * {
   position: relative;
