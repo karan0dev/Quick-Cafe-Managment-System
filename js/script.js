@@ -48,7 +48,7 @@ const FALLBACK_MENU = [
   { item_id: 8, item_name: 'Mint Lemonade', description: 'Fresh mint, lemon and sparkling water', price: 129, rating: 4.4, category_name: 'Cold Drinks', image: 'images/menu/mint-lemonade.svg' },
   { item_id: 9, item_name: 'Cheese Sandwich', description: 'Grilled sandwich with melted cheese', price: 119, rating: 4.4, category_name: 'Snacks', image: 'images/menu/cheese-sandwich.svg' },
   { item_id: 10, item_name: 'Veg Puff', description: 'Flaky pastry with spiced vegetable filling', price: 99, rating: 4.2, category_name: 'Snacks', image: 'images/menu/veg-puff.svg' },
-  { item_id: 11, item_name: 'Garlic Bread', description: 'Toasted bread with garlic herb butter', price: 129, rating: 4.5, category_name: 'Snacks', image: 'images/menu/garlic-bread.svg' },
+  { item_id: 11, item_name: 'Garlic Bread', description: 'Toasted bread with garlic herb butter', price: 129, rating: 4.5, category_name: 'Snacks', image: 'images/menu/garlic-bread.png' },
   { item_id: 12, item_name: 'Chocolate Brownie', description: 'Rich fudgy brownie with cocoa', price: 129, rating: 4.8, category_name: 'Desserts', image: 'images/menu/chocolate-brownie.svg' },
   { item_id: 13, item_name: 'Blueberry Muffin', description: 'Soft muffin packed with blueberries', price: 119, rating: 4.3, category_name: 'Desserts', image: 'images/menu/blueberry-muffin.svg' },
 ];
@@ -68,7 +68,7 @@ const ITEM_PHOTO_URLS = {
   8: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=700&auto=format&fit=crop',
   9: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=700&auto=format&fit=crop',
   10: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=700&auto=format&fit=crop',
-  11: 'https://images.unsplash.com/photo-1619898804176-c2d8e2d97cc0?q=80&w=700&auto=format&fit=crop',
+  11: 'images/menu/garlic-bread.png',
   12: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=700&auto=format&fit=crop',
   13: 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?q=80&w=700&auto=format&fit=crop',
 };
@@ -84,7 +84,7 @@ const ITEM_IMAGE_FALLBACKS = {
   8: 'images/menu/mint-lemonade.svg',
   9: 'images/menu/cheese-sandwich.svg',
   10: 'images/menu/veg-puff.svg',
-  11: 'images/menu/garlic-bread.svg',
+  11: 'images/menu/garlic-bread.png',
   12: 'images/menu/chocolate-brownie.svg',
   13: 'images/menu/blueberry-muffin.svg',
 };
