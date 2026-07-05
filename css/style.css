@@ -491,14 +491,14 @@ html[data-theme="light"] .hero::before {
 
 /* Hero Animations Support */
 .hero-bg {
-  position: absolute;
+  position: absolute !important;
   inset: 0;
   background-image:
     linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 45%, rgba(255, 255, 255, 0.15) 100%),
     url("../images/hero/hero-dark.png");
   background-size: cover;
   background-position: right center;
-  z-index: 0;
+  z-index: 0 !important;
   animation: heroBackgroundZoom 24s ease-in-out infinite alternate;
   pointer-events: none;
   transform-origin: right center;
@@ -510,11 +510,11 @@ html[data-theme="light"] .hero-bg {
 }
 
 .hero-particle {
-  position: absolute;
+  position: absolute !important;
   background: rgba(156, 102, 68, 0.12);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 1 !important;
   animation: heroFloat 8s ease-in-out infinite;
 }
 
