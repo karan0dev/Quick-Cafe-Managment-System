@@ -1245,11 +1245,34 @@ function initInfoPages() {
   }
 }
 
+function initHeroAnimations() {
+  document.querySelectorAll('.hero').forEach((hero) => {
+    if (!hero.querySelector('.hero-bg')) {
+      const bg = document.createElement('div');
+      bg.className = 'hero-bg';
+      hero.prepend(bg);
+    }
+    for (let i = 0; i < 6; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'hero-particle';
+      const size = Math.floor(Math.random() * 8) + 4;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.floor(Math.random() * 80) + 10}%`;
+      particle.style.top = `${Math.floor(Math.random() * 80) + 10}%`;
+      particle.style.animationDelay = `${Math.random() * 6}s`;
+      particle.style.animationDuration = `${Math.random() * 6 + 6}s`;
+      hero.appendChild(particle);
+    }
+  });
+}
+
 /* ============================================================
    Boot
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initHeroAnimations();
   initMobileNav();
   initSoonLinks();
   updateCartBadges();
